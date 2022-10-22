@@ -10,7 +10,7 @@ type sumOfTwoLengths<
   L2 extends any[]
 > = [...L1, ...L2]['length'];
 
-type sumOfTwoPositiveInts<
+export type sumOfTwoPositiveInts<
   N1 extends number, 
   N2 extends number
 > = sumOfTwoLengths<
