@@ -1,9 +1,4 @@
-type decToLength<
-  T extends number,
-  Arr extends any[] = []
-> = Arr['length'] extends T 
-  ? Arr 
-  : decToLength<T, [...Arr, '.']>;
+import { DecToLength } from './decToLength';
 
 type sumOfTwoLengths<
   L1 extends any[], 
@@ -14,8 +9,8 @@ export type sumOfTwoPositiveInts<
   N1 extends number, 
   N2 extends number
 > = sumOfTwoLengths<
-  decToLength<N1>,
-  decToLength<N2>
+  DecToLength<N1>,
+  DecToLength<N2>
 >;
 
 
