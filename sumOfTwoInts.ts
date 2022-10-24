@@ -1,17 +1,17 @@
-import { DecToLength } from './decToLength';
+import { DecToRange } from './decToRange';
 
-type sumOfTwoLengths<
+type SumOfTwoLengths<
   L1 extends any[], 
   L2 extends any[]
 > = [...L1, ...L2]['length'];
 
-export type sumOfTwoPositiveInts<
+export type SumOfTwoPositiveInts<
   N1 extends number, 
   N2 extends number
-> = sumOfTwoLengths<
-  DecToLength<N1>,
-  DecToLength<N2>
+> = SumOfTwoLengths<
+  DecToRange<N1>,
+  DecToRange<N2>
 >;
 
 
-type x = sumOfTwoPositiveInts<999, 999>
+type test = SumOfTwoPositiveInts<999, 999>

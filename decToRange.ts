@@ -1,7 +1,8 @@
-export type DecToLength<
+export type DecToRange<
   T extends number,
   Arr extends any[] = []
 > = Arr['length'] extends T 
   ? Arr 
-  : DecToLength<T, [...Arr, '.']>;
+  : DecToRange<T, [...Arr, '.']>;
 
+type test = DecToRange<3>

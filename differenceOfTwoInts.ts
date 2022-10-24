@@ -1,9 +1,9 @@
-import { DecToLength } from './decToLength';
+import { DecToRange } from './decToRange';
 
 type DifferenceOfTwoPositiveInts<N1 extends number, N2 extends number, Acc extends any[] = []> =
-  DecToLength<N1> extends [...DecToLength<N2>, ...infer Rest]
+  DecToRange<N1> extends [...DecToRange<N2>, ...infer Rest]
     ? Rest['length']
-    : DecToLength<N2> extends [...DecToLength<N1>, ...infer Rest]
+    : DecToRange<N2> extends [...DecToRange<N1>, ...infer Rest]
       ? Rest['length']
       : 0
 

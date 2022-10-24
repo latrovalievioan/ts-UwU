@@ -1,10 +1,10 @@
-import { DecToLength } from './decToLength';
-import { sumOfTwoPositiveInts } from './sumOfTwoInts';
+import { DecToRange } from './decToRange';
+import { SumOfTwoPositiveInts } from './sumOfTwoInts';
 
 type MinutesMatrix<M extends number, Acc extends any[] = []> =
   Acc['length'] extends M
     ? Acc
-    : MinutesMatrix<M, [...Acc, DecToLength<60>]>
+    : MinutesMatrix<M, [...Acc, DecToRange<60>]>
 
 type MinutesMatrixToSeconds<
   M extends any[][], 
@@ -13,8 +13,8 @@ type MinutesMatrixToSeconds<
 > =
   I extends M['length']
     ? Acc['length']
-    : sumOfTwoPositiveInts<I, 1> extends number
-      ? MinutesMatrixToSeconds<M, [...Acc, ...M[I]], sumOfTwoPositiveInts<I, 1>>
+    : SumOfTwoPositiveInts<I, 1> extends number
+      ? MinutesMatrixToSeconds<M, [...Acc, ...M[I]], SumOfTwoPositiveInts<I, 1>>
       : never
 
 type test = MinutesMatrixToSeconds<MinutesMatrix<2>>

@@ -1,4 +1,4 @@
-import { sumOfTwoPositiveInts } from './sumOfTwoInts'
+import { SumOfTwoPositiveInts } from './sumOfTwoInts'
 
 type fibToN<
   N extends number,
@@ -6,7 +6,7 @@ type fibToN<
 > = Arr['length'] extends N
   ? Arr
   : Arr[0] & Arr[1] extends number
-    ? fibToN<N, [sumOfTwoPositiveInts<Arr[0], Arr[1]>, ...Arr]>
+    ? fibToN<N, [SumOfTwoPositiveInts<Arr[0], Arr[1]>, ...Arr]>
     : never
 
-type seq = fibToN<18>
+type test = fibToN<18>
