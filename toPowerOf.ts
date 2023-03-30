@@ -1,13 +1,11 @@
 import { Multiply } from './multiply';
 import { DifferenceOfTwoPositiveInts } from './differenceOfTwoInts';
 
-//TODO: make it work with 0
-
 export type toPowerOf<
   N extends number,
   Pow extends number,
-  Acc extends number = N
-> = Pow extends 1
+  Acc extends number = 1
+> = Pow extends 0
   ? Acc
   : Multiply<Acc, N> extends number
   ? DifferenceOfTwoPositiveInts<Pow, 1> extends number
@@ -15,4 +13,4 @@ export type toPowerOf<
     : never
   : never;
 
-type test = toPowerOf<2, 8>;
+type test = toPowerOf<3, 4>;
